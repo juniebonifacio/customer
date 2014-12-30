@@ -1,0 +1,11 @@
+.metadata
+.metadata/*
+RemoteSystemsTempFiles
+RemoteSystemsTempFiles/*
+DATA_ACCESS_LAYER/RestWebServices/.classpath
+DATA_ACCESS_LAYER/RestWebServices/.project
+DATA_ACCESS_LAYER/RestWebServices/.settings
+DATA_ACCESS_LAYER/RestWebServices/.settings/*
+DATA_ACCESS_LAYER/RestWebServices/.settings/org.eclipse.jdt.core.prefs
+DATA_ACCESS_LAYER/RestWebServices/target
+DATA_ACCESS_LAYER/RestWebServices/target/*
