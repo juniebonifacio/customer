@@ -1,3 +1,3 @@
-./package.sh;
-/bin/rm -fr /opt/tomcat/webapps/RestWebServices*
-cp target/RestWebServices.war /opt/tomcat/webapps/
+./mvnpackage.sh
+/bin/rm -fr /opt/tomcat/webapps/Rest*
+cp target/RESTfulWebServices.war /opt/tomcat/webapps/
