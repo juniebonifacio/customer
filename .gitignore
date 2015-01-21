@@ -8,6 +8,7 @@ DATA_ACCESS_LAYER/RESTfulWebServices/.settings
 DATA_ACCESS_LAYER/RESTfulWebServices/.settings/*
 DATA_ACCESS_LAYER/RESTfulWebServices/.settings/org.eclipse.jdt.core.prefs
 DATA_ACCESS_LAYER/RESTfulWebServices/target
+DATA_ACCESS_LAYER/RESTfulWebServices/target/*
 ECI_APP
 MOCK_UPS
 SOLUTIO_APP
