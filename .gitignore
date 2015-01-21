@@ -9,3 +9,7 @@ DATA_ACCESS_LAYER/RestWebServices/.settings/*
 DATA_ACCESS_LAYER/RestWebServices/.settings/org.eclipse.jdt.core.prefs
 DATA_ACCESS_LAYER/RestWebServices/target
 DATA_ACCESS_LAYER/RestWebServices/target/*
+ECI_APP
+MOCK_UPS
+SOLUTIO_APP
+PLM_APP
