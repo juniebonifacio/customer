@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd  
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd" default-autowire="byName">
+        <bean id="placeholderConfig"
+                class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+                <property name="location" value="classpath:db.properties" />
+        </bean>
+      <bean id="shiroDataSource" class="org.apache.commons.dbcp.BasicDataSource"
+                destroy-method="close">
+                <property name="driverClassName" value="${db.driver}" />
+                <property name="url" value="${db.shiro.url}" />
+                <property name="username" value="${db.username}" />
+                <property name="password" value="${db.password}" />
+        </bean>
+<bean id="ShiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+    <property name="securityManager" ref="securityManager"/>
+</bean>
+    <bean id="rememberMeManager" class="com.customer.security.RememberMeManager">
+    	
+    </bean>
+	<bean name="mainSM" id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+    <!-- Single realm app.  If you have multiple realms, use the 'realms' property instead. -->
+    		<property name="realm" ref="dbRealm"/>
+    		<property name="rememberMeManager" ref="rememberMeManager"/>
+    <!-- By default the servlet container sessions will be used.  Uncomment this line
+         to use shiro's native sessions (see the JavaDoc for more): -->
+    <!-- <property name="sessionMode" value="native"/> -->
+	</bean>
+	
+	<bean name="nonWebSM" id="nonWebSecurityManager" class="org.apache.shiro.mgt.DefaultSecurityManager">
+    <!-- Single realm app.  If you have multiple realms, use the 'realms' property instead. -->
+    		<property name="realm" ref="dbRealm"/>
+    		
+    <!-- By default the servlet container sessions will be used.  Uncomment this line
+         to use shiro's native sessions (see the JavaDoc for more): -->
+    <!-- <property name="sessionMode" value="native"/> -->
+	</bean>
+	
+	<bean id="testSecurityManager" class="org.apache.shiro.mgt.DefaultSecurityManager">
+		<qualifier value="test"/>
+		<property name="realm" ref="dbRealm"/>
+	</bean>
+	<bean id="sha256" class="org.apache.shiro.authc.credential.SimpleCredentialsMatcher"/>
+	
+	<bean id="extendedSimple" class="com.customer.security.ExtendedSimpleCredentialsMatcher"/>
+
+	<!-- bean id="dbRealm" class="org.apache.shiro.realm.jdbc.JdbcRealm"-->
+	<!--  bean id="dbRealm" class="com.customer.security.ExtendedJdbcRealm"-->
+	<bean id="dbRealm" class="com.customer.security.JdbcRealm">
+		<property name="authenticationQuery" value="select a.member_id, a.user_password, a.user_passsalt, b.client_master_id, a.id from sec_user a, payroll_bd.member b where a.user_loginname = ? and a.member_id = b.id"/>
+		<property name="dataSource" ref="shiroDataSource"/>
+		<property name="userRolesQuery" value="select role_name from sec_role r, sec_user u, sec_user_role_mapping m where m.sec_user_id = u.id and m.sec_role_id = r.id and u.user_loginname = ?"/>
+		<property name="permissionsQuery" value="select permission_name from sec_permission p, sec_role r, sec_role_permission_mapping m where m.sec_permission_id = p.id and m.sec_role_id = r.id and r.role_name = ?"/>
+		<property name="credentialsMatcher" ref="sha256"/>
+		<property name="permissionsLookupEnabled" value="true"/>
+	</bean>
+</beans>
