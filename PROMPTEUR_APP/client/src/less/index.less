@@ -1,0 +1,218 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	font-family: "Open Sans", sans-serif;
+	font-size: 12px;
+	color: #383838;
+}
+
+* {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+/* Font-awesome */
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('/static/fonts/fontawesome-webfont.eot');
+  src: url('/static/fonts/fontawesome-webfont?iefix') format('eot'),
+    url('/static/fonts/fontawesome-webfont.woff') format('woff'),
+    url('/static/fonts/fontawesome-webfont.ttf') format('truetype'),
+    url('/static/fonts/fontawesome-webfont.svg#webfontjSpbZQRv') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Custom Grid System */
+.bit-row {
+	font-size: 0;
+}
+[class*="bit-"] {
+	display: inline-block;
+	padding: 2px 4px;
+	margin: 0;
+	font-size: 14px;
+	vertical-align: top;
+}
+.bit-1 {width: 8.333333333%;}
+.bit-2 {width: 16.666666666%;}
+.bit-3 {width: 25%;}
+.bit-4 {width: 33.333333332%;}
+.bit-5 {width: 41.666666665%;}
+.bit-6 {width: 50%;}
+.bit-7 {width: 58.333333331%;}
+.bit-8 {width: 66.666666664%;}
+.bit-9 {width: 74.999999997%;}
+.bit-10 {width: 83.33333333%;}
+.bit-11 {width: 91.666666663%;}
+.bit-12 {width: 100%;}
+
+
+/* Form Field */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="file"],
+select {
+	width: 100%;
+	height: 34px;
+	margin: 0;
+	border-radius: 0;
+	padding: 6px 8px;
+	color: #333;
+	border: 1px solid #BBB;
+	font-size: 13px;
+	background-color: #FFF;
+	font-family: "Open Sans", sans-serif;
+}
+input[type="text"]:disabled {
+	background-color: #EEE;
+}
+
+input[type="checkbox"] {
+	margin-right: 5px;
+}
+
+label {
+	font-family: "Domine", serif;
+	font-size: 14px;
+	color: #666;
+}
+
+.hasDatepicker {
+	width: 85% !important;
+	float: left;
+}
+
+.hasDatepicker + span {
+	float: right;
+	background-color: #DBD6D6;
+	width: 15%;
+	height: 34px;
+	padding: 10px 4px 0 4px;
+	text-align: center;
+	border-top: 1px solid #BBB;
+	border-right: 1px solid #BBB;
+	border-bottom: 1px solid #BBB;
+}
+
+/* BUTTON STYLE 1 */
+button.btn1 {
+	font-family: "Open Sans", sans-serif;
+	color: #FFF;
+	display: inline-block;
+	font-size: 14px;
+	font-weight: 600;
+	font-style: normal;
+	padding: 0 15px;
+	text-decoration: none;
+	text-align: center;
+	height: 34px;
+
+	background-color: #248556;
+	border-radius: 5px;
+	border: 1px solid #B6F1D5;
+}
+button.btn1:hover {
+	background-color: #379C6C;
+	border: 1px solid #47926D;
+	cursor: pointer;
+}
+button.btn1:active {
+	position: relative;
+	background-color: #1E754C;
+	top:1px;
+}
+
+/* BUTTON STYLE 2 */
+button.btn2 {
+	font-family: "Open Sans", sans-serif;
+	color: #695858;
+	display: inline-block;
+	font-size: 12px;
+	font-weight: 600;
+	font-style: normal;
+	padding: 0 15px;
+	text-decoration: none;
+	text-align: center;
+	height: 34px;
+
+	background: #C0DAC7;
+	border: 1px solid #86AD91;
+	text-shadow: none;
+	border-radius: 3px;
+}
+button.btn2:hover {
+	background-color: #D0E7D6;
+	border: 1px solid #47926D;
+	cursor: pointer;
+}
+button.btn2:active {
+	position: relative;
+	background-color: #B0E0BD;
+	top:1px;
+}
+
+button:disabled {
+	background-color: #EEE;
+	border: 1px solid #BBB;
+}
+button:disabled:hover {
+	cursor: default;
+	background-color: #EEE;
+	border: 1px solid #BBB;
+}
+button:disabled:active {
+	cursor: default;
+	background-color: #EEE;
+	border: 1px solid #BBB;
+	top: 0;
+}
+
+.error-message {
+	color: #FF4545;
+	font-size: 11px;
+	padding: 4px 2px 0 2px;
+}
+
+.form-row {
+	margin: 10px 0 5px 0;
+	font-size: 0;
+}
+.form-controls {
+	margin: 10px 5px 5px 0;
+	text-align: right;
+}
+
+h1 {
+	font-family: "Domine", serif;
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+
+.htabs {
+	.tab {
+		display: inline-block;
+		border-radius: 5px 5px 0 0;
+		border-top: 1px solid #7C7C7C;
+		border-left: 1px solid #7C7C7C;
+		border-right: 1px solid #7C7C7C;
+		padding: 5px 15px;
+		background-color: #FFF;
+		margin-right: 5px;
+	}
+	.tab.active {
+		background-color: #EEE;
+		border-bottom: 1px solid #EEE;
+		z-index: 99;
+		margin-bottom: -1px;
+	}
+}
+.htabs-content {
+	border: 1px solid #7C7C7C;
+	padding: 10px;
+	border-radius: 0 5px 5px 5px;
+	background-color: #EEE;
+}

@@ -1,0 +1,54 @@
+<div id="topbar">
+	<div class="logo" ng-click="changeMain('home')">prompteur</div>
+	<div class="toolbar">
+		<div class="toolbar-item" ng-click="togglePopup('notifications')">
+			<div>
+				<div class="toolbar-item-count">2</div>
+				<span class="fa fa-asterisk"/>
+			</div>
+			<div class="popup notifications" ui-if="showNotifications">
+				<div class="popup-header">Notifications</div>
+				<div class="popup-body">
+					<div class="notify-item new-item">
+						<div class="notify-content">s. Cras vestibulum malesuada sem ac blandit. Cras m</div>
+						<div class="notify-time">5 secs ago</div>
+					</div>
+					<div class="notify-item new-item">
+						<div class="notify-content">t, consectetur adipiscing elit. In mi quam, adipi</div>
+						<div class="notify-time">10 mins ago</div>
+					</div>
+					<div class="notify-item">
+						<div class="notify-content">ci tincidunt varius. Sed eget urna tincidunt </div>
+						<div class="notify-time">1 hour ago</div>
+					</div>
+					<div class="notify-item">
+						<div class="notify-content">ntum. Maecenas volutpat hendrerit auctor. P</div>
+						<div class="notify-time">2 days ago</div>
+					</div>
+					<div class="notify-item">
+						<div class="notify-content">m. Sed congue at tellus at sagittis. Aliquam erat volutpat. Pellentesque commodo</div>
+						<div class="notify-time">10 days ago</div>
+					</div>
+					<div class="notify-item">
+						<div class="notify-content">a luctus nisi. Morbi eu mattis nisi. Pellentesque feugiat bibendum eros a</div>
+						<div class="notify-time">15 days ago</div>
+					</div>
+					<div class="notify-item">
+						<div class="notify-content">ntum. Maecenas volutpat hendrerit auctor. P</div>
+						<div class="notify-time">a month ago</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="toolbar-item" ng-click="changeMain('messaging')">
+			<div class="toolbar-item-count">1</div>
+			<span class="fa fa-envelope"/>
+		</div>
+		<div class="user-image"><span class="fa fa-smile-o"/></div>
+	</div>
+	<div class="search">
+		<input type="text" class="global-search"/>
+		<span class="fa fa-search"/>
+	</div>
+</div>

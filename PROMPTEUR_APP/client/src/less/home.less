@@ -1,0 +1,113 @@
+.content {
+	.left-sidebar {
+		position: fixed;
+		bottom: 0;
+		top: @topbar-height;
+		left: 0;
+		width: 280px;
+
+		.sidebar-item {
+			border: 1px solid #7C7C7C;
+			margin: 10px;
+			border-radius: 5px;
+			padding: 10px;
+			-webkit-box-shadow: 0px 1px 2px 0px rgba(50, 50, 50, 0.5);
+			-moz-box-shadow: 0px 1px 2px 0px rgba(50, 50, 50, 0.5);
+			box-shadow: 0px 1px 2px 0px rgba(50, 50, 50, 0.5);
+
+			.sidebar-item-header {
+				font-size: 14px;
+				font-family: "Domine", serif;
+				font-weight: bold;
+				margin-bottom: 10px;
+			}
+		}
+
+		.admin-profile {
+			font-size: 0;
+			
+			.admin-details {
+				display: inline-block;
+				vertical-align: top;
+				width: 66%;
+				font-size: 12px;
+
+				.admin-actions {
+					font-size: 10px;
+					margin-top: 10px;
+				}
+			}
+			.admin-user-image {
+				background-color: #DADADA;
+				display: inline-block;
+				vertical-align: top;
+				width: 34%;
+			}
+			.admin-user-image:after {
+				content: "";
+				display: block;
+				margin-top: 90%;
+			}
+		}
+
+		.task-item {
+			font-size: 13px;
+			border-bottom: 1px solid #DDD;
+			padding: 5px 10px 5px 10px;
+
+			.fa {
+				margin-right: 10px;
+			}
+		}
+		.task-item:hover {
+			background-color: #EEE;
+			cursor: pointer;
+		}
+		.task-item:last-of-type {
+			border-bottom: 0;
+		}
+
+		.document-list {
+			text-align: center;
+
+			.document-item {
+				border: 1px solid #DDD;
+				border-radius: 5px;
+				display: inline-block;
+				padding: 10px;
+				margin: 2%;
+				width: 45%;
+
+				.fa {
+					font-size: 22px;
+				}
+			}
+			.document-item:hover {
+				cursor: pointer;
+				background-color: #EEE;
+			}
+		}
+	}
+	.main {
+		position: fixed;
+		left: 280px;
+		right: 0;
+		top: @topbar-height;
+		bottom: 0;
+
+		.consultant-dashboard {
+			border: 1px solid #7C7C7C;
+			margin: 10px 10px 10px 0;
+			border-radius: 5px;
+			padding: 10px;
+			-webkit-box-shadow: 0px 1px 2px 0px rgba(50, 50, 50, 0.5);
+			-moz-box-shadow: 0px 1px 2px 0px rgba(50, 50, 50, 0.5);
+			box-shadow: 0px 1px 2px 0px rgba(50, 50, 50, 0.5);
+
+			.greeting {
+				font-size: 16px;
+				font-weight: bold;
+			}
+		}
+	}
+}

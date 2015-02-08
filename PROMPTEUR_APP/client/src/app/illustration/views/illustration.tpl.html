@@ -1,0 +1,96 @@
+<div id="solutio-widget">
+   <div class="reg-widget">
+      <div class="widget-header">Request your Illustration</div>
+      <div ng-hide="success">
+         <form id="request" class="widget-content" name="requestForm" novalidate>
+            <div class="form-row">
+               <div class="bit-6">
+                  <label>First Name</label>
+                  <div>
+                     <input type="text" ng-model="form.firstName" required/>
+                     <div class="error-message" ng-show="errors.firstName">{{errors.firstName}}</div>
+                  </div>
+               </div>
+               <div class="bit-6">
+                  <label>Last Name</label>
+                  <div><input type="text" ng-model="form.lastName" required/></div>
+               </div>
+            </div>
+            <div class="form-row">
+               <div class="bit-6">
+                  <label>Email</label>
+                  <div>
+                     <input type="email" ng-model="form.emailAddress" required/>
+                     <div class="error-message" ng-show="errors.emailAddress">Please enter a valid email</div>
+                  </div>
+               </div>
+               <div class="bit-6">
+                  <label>Phone Number</label>
+                  <div><input type="text" ng-model="form.phoneNumber" required/></div>
+               </div>
+            </div>
+            <div class="form-row">
+               <div class="bit-6">
+                  <label>Rate</label>
+                  <div><input type="text" ng-model="form.rate" required/></div>
+               </div>
+               <div class="bit-6">
+                  <label>Basis</label>
+                  <div>
+                     <select ng-model="form.basis" required>
+                        <option>Daily</option>
+                        <option>Hourly</option>
+                        <option>Fixed Fee</option>
+                     </select>
+                  </div>
+               </div>
+            </div>
+            <div class="form-row">
+               <div class="bit-6">
+                  <label>Student Loan</label>
+               </div>
+               <div class="bit-3">
+                  <input type="radio" name="loan" id="yes" value="true" ng-model="form.isStudentLoan" required/>
+                  <label for="yes">Yes</label>
+               </div>
+               <div class="bit-3">
+                  <input type="radio" name="loan" id="no" value="false" ng-model="form.isStudentLoan" required/>
+                  <label for="yes">No</label>
+               </div>
+            </div>
+            <div class="form-row">
+               <div class="bit-12">
+                  <label>How did you hear about us?</label>
+                  <select ng-change="checkVal()" ng-model="form.source" required ng-options="s.name for s in source">
+                     <!-- <option selected="selected" disabled></option>
+                     <option>Google</option>
+                     <option>Advertisement</option>
+                     <option>Family</option>
+                     <option>Friend</option>
+                     <option disabled>---------------</option>
+                     <option value="other">Other</option> -->
+                  </select>
+               </div>
+            </div>
+            <div class="form-row" ui-if="showOther">
+               <div class="bit-12">
+                  <label>Other (please specify)</label>
+                  <input type="text" ng-model="form.other" required/>
+               </div>
+            </div>
+            <div class="form-controls">
+               <button class="btn1" ng-click="submit()">Submit</button>
+            </div>
+         </form>
+      </div>
+      <div class="widget-message" ui-if="success">
+         <p>
+            Thank you for your interest in Solutio!
+         </p>
+         <p>
+            We will be sending your illustration in a while.
+            Please check your email after 5 minutes.
+         </p>
+      </div>
+   </div>
+</div>

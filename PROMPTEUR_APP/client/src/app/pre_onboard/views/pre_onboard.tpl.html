@@ -1,0 +1,715 @@
+<div id="onboard-form">
+   <div class="header">Get Started with <span>Prompteur</span></div>
+   <div class="subheader">Your Onboarding</div>
+   <form id="onboarding">
+      <div class="form-section">
+         <div class="section-header">Your Personal Details</div>
+         <div class="form-row">
+            <div class="bit-2">
+               <div>
+                  <label>Title</label>
+                  <span class="fa fa-question-circle"/>
+               </div>
+               <div>
+                  <select ng-model="form.refSalutation" ng-options="s.title for s in salutations"></select>
+                  <!-- <select></select> -->
+               </div>
+            </div>
+            <div class="bit-5">
+               <div>
+                  <label>First Name</label>
+                  <span class="fa fa-question-circle"/>
+               </div>
+               <div>
+                  <input type="text" ng-model="form.firstName"/>
+               </div>
+            </div>
+            <div class="bit-5">
+               <div>
+                  <label>Last Name</label>
+                  <span class="fa fa-question-circle"/>
+               </div>
+               <div>
+                  <input type="text" ng-model="form.lastName"/>
+               </div>
+            </div>
+         </div>
+         <div class="form-row">
+            <div class="bit-5">
+               <div>
+                  <label>Email Address</label>
+                  <span class="fa fa-question-circle"/>
+               </div>
+               <div>
+                  <input type="email" ng-model="form.emailAddress"/>
+               </div>
+            </div>
+         </div>
+         <div class="form-row">
+            <div class="bit-6">
+               <div>
+                  <label>Mobile Phone Number</label>
+                  <span class="fa fa-question-circle"/>
+               </div>
+               <div>
+                  <input type="text" ng-model="form.mobilePhoneNumber"/>
+               </div>
+            </div>
+            <div class="bit-6">
+               <div>
+                  <label>Alternative Phone Number</label>
+                  <span class="fa fa-question-circle"/>
+               </div>
+               <div>
+                  <input type="text" ng-model="form.alternatePhoneNumber"/>
+               </div>
+            </div>
+         </div>
+         <div class="form-row">
+            <div class="bit-6">
+               <div>
+                  <label>National Insurance Number</label>
+                  <span class="fa fa-question-circle"/>
+               </div>
+               <div>
+                  <input type="text" ng-model="form.nationalInsuranceNumber" ng-disabled="noNin"/>
+               </div>
+            </div>
+            <div class="bit-6">
+               <div>&nbsp;</div>
+               <div>
+                  <input id="nonin" type="checkbox" ng-model="noNin"/>
+                  <label for="nonin"> I don't have one yet</label>
+               </div>
+            </div>
+         </div>
+         <div class="form-row">
+            <div class="bit-4">
+               <div>
+                  <label>Gender</label>
+               </div>
+               <div>
+                  <select ng-model="form.gender">
+                     <option>Male</option>
+                     <option>Female</option>
+                  </select>
+               </div>
+            </div>
+            <div class="bit-4">
+               <div>
+                  <label>Marital Status</label>
+               </div>
+               <div>
+                  <select ng-model="form.refUmbCountryMaritalStatus" ng-options="form.refUmbCountryMaritalStatus">
+                  </select>
+               </div>
+            </div>
+         </div>
+      </div>
+
+
+      
+      <div class="form-section">
+         <div class="section-header">
+            Home Address
+            <span class="fa fa-question-circle"/>
+         </div>
+         <div class="form-row">
+            <div class="bit-12">
+               <div>
+                  <input id="addmanual" type="checkbox" ng-model="manualHomeAddress"/>
+                  <label for="addmanual"> Enter address manually</label>
+               </div>
+            </div>
+         </div>
+         <div class="form-row">
+            <div class="bit-5">
+               <div>
+                  <label>Country</label>
+               </div>
+               <div>
+                  <select ng-model="tempHomeCountry" ng-options="country for country in countryList">
+                     <option selected="selected" disabled></option>
+                  </select>
+               </div>
+            </div>
+            <div class="bit-2">
+               <div>
+                  <label>Post Code</label>
+               </div>
+               <div>
+                  <input type="text" ng-model="form.pyAddressByHomeAddressId.postcode"/>
+               </div>
+            </div>
+            <div class="bit-2">
+               <div>
+                  <label>House Number</label>
+               </div>
+               <div>
+                  <input type="text"/>
+               </div>
+            </div>
+            <div class="bit-3">
+               <div>&nbsp;</div>
+               <div>
+                  <button class="btn2" ng-disabled="manualHomeAddress">Lookup address</button>
+               </div>
+            </div>
+         </div>
+         <div class="form-row">
+            <div class="bit-6">
+               <div>
+                  <label>Address Line 1</label>
+               </div>
+               <div>
+                  <input id="homeaddline1" type="text" ng-disabled="!manualHomeAddress" ng-model="form.pyAddressByHomeAddressId.addressLine1"/>
+               </div>
+            </div>
+            <div class="bit-6">
+               <div>
+                  <label>Address Line 2</label>
+               </div>
+               <div>
+                  <input id="homeaddline2" type="text" ng-disabled="!manualHomeAddress" ng-model="form.pyAddressByHomeAddressId.addressLine2"/>
+               </div>
+            </div>
+         </div>
+         <div class="form-row">
+            <div class="bit-6">
+               <div>
+                  <label>Town</label>
+               </div>
+               <div>
+                  <input id="homeaddtown" type="text" ng-disabled="!manualHomeAddress" ng-model="form.pyAddressByHomeAddressId.city"/>
+               </div>
+            </div>
+         </div>
+
+
+         <div class="form-row" style="margin-top: 30px;">
+            <div class="bit-3">
+               <div class="section-header">
+                  Mailing Address
+               </div>
+            </div>
+            <div class="bit-5" style="vertical-align: top !important;">
+               <div>
+                  <input id="addSame" type="checkbox" ng-model="sameHomeMailAddress"/>
+                  <label for="addSame"> Same as home address</label>
+               </div>
+            </div>
+            <div class="bit-4" style="vertical-align: top !important;">
+               <span class="fa fa-question-circle"/>
+            </div>
+         </div>
+         <div ui-if="!sameHomeMailAddress">
+            <div class="form-row">
+               <div class="bit-12">
+                  <div>
+                     <input id="mailaddmanual" type="checkbox" ng-model="manualMailAddress"/>
+                     <label for="mailaddmanual"> Enter address manually</label>
+                  </div>
+               </div>
+            </div>
+            <div class="form-row">
+               <div class="bit-5">
+                  <div>
+                     <label>Country</label>
+                  </div>
+                  <div>
+                     <select ng-model="tempMailCountry" ng-options="country for country in countryList">
+                        <option selected="selected" disabled></option>
+                     </select>
+                  </div>
+               </div>
+               <div class="bit-2">
+                  <div>
+                     <label>Post Code</label>
+                  </div>
+                  <div>
+                     <input type="text" ng-model="form.pyAddressByMailingAddressId.postcode"/>
+                  </div>
+               </div>
+               <div class="bit-2">
+                  <div>
+                     <label>House Number</label>
+                  </div>
+                  <div>
+                     <input type="text"/>
+                  </div>
+               </div>
+               <div class="bit-3">
+                  <div>&nbsp;</div>
+                  <div>
+                     <button id="mailLookup" class="btn2" ng-disabled="manualMailAddress">Lookup address</button>
+                  </div>
+               </div>
+            </div>
+            <div class="form-row">
+               <div class="bit-6">
+                  <div>
+                     <label>Address Line 1</label>
+                  </div>
+                  <div>
+                     <input type="text" id="mailaddline1"  ng-disabled="!manualMailAddress" ng-model="form.pyAddressByMailingAddressId.addressLine1"/>
+                  </div>
+               </div>
+               <div class="bit-6">
+                  <div>
+                     <label>Address Line 2</label>
+                  </div>
+                  <div>
+                     <input type="text" id="mailaddline2"  ng-disabled="!manualMailAddress" ng-model="form.pyAddressByMailingAddressId.addressLine2"/>
+                  </div>
+               </div>
+            </div>
+            <div class="form-row">
+               <div class="bit-6">
+                  <div>
+                     <label>Town</label>
+                  </div>
+                  <div>
+                     <input type="text" id="mailaddtown"  ng-disabled="!manualMailAddress" ng-model="form.pyAddressByMailingAddressId.city"/>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+
+
+      <div class="form-section">
+         <div class="section-header">Your Bank Details</div>
+         <div ui-if="!noBankDetails">
+            <div class="form-row">
+               <div class="bit-4">
+                  <div>
+                     <label>
+                        Sort Code
+                        <span class="fa fa-question-circle"/>
+                     </label>
+                  </div>
+                  <div>
+                     <input type="text" id="sortCode"/>
+                  </div>
+               </div>
+               <div class="bit-5">
+                  <div>
+                     <label>
+                        Account Number
+                        <span class="fa fa-question-circle"/>
+                     </label>
+                  </div>
+                  <div>
+                     <input type="text" id="acctNum"/>
+                  </div>
+               </div>
+               <div class="bit-3">
+                  <div>&nbsp;</div>
+                  <div>
+                     <button id="lookupBank" class="btn2">Lookup bank details</button>
+                  </div>
+               </div>
+            </div>
+            <div class="form-row">
+               <div class="bit-6">
+                  <div>
+                     <label>
+                        Roll Number
+                        <span class="fa fa-question-circle"/>
+                     </label>
+                  </div>
+                  <div>
+                     <input type="text" id="rollNum"/>
+                  </div>
+               </div>
+               <div class="bit-6">
+                  <div>
+                     <label>
+                        IBAN Number
+                        <span class="fa fa-question-circle"/>
+                     </label>
+                  </div>
+                  <div>
+                     <input type="text" id="ibanNum"/>
+                  </div>
+               </div>
+            </div>
+            <div class="form-row">
+               <div class="bit-6">
+                  <div>
+                     <label>
+                        BIC Number
+                        <span class="fa fa-question-circle"/>
+                     </label>
+                  </div>
+                  <div>
+                     <input type="text" id="bicNum"/>
+                  </div>
+               </div>
+               <div class="bit-6">
+                  <div>
+                     <label>
+                        SWIFT Number
+                        <span class="fa fa-question-circle"/>
+                     </label>
+                  </div>
+                  <div>
+                     <input type="text" id="swiftNum"/>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="form-row">
+            <div class="bit-12">
+               <div>
+                  <input id="noAcct" type="checkbox" ng-model="noBankDetails"/>
+                  <label for="noAcct"> I do not have an account set up yet</label>
+               </div>
+            </div>
+         </div>
+      </div>
+
+
+
+      <div class="form-section">
+         <div class="section-header">Your National and Immigration Status</div>
+         <div class="form-row">
+            <div class="two-col">
+               <div>
+                  <label>
+                     Nationality
+                     <span class="fa fa-question-circle"/>
+                  </label>
+               </div>
+               <div>
+                  <select ng-model="form.nationality" ng-change="toggleField('nationality')">
+                     <option selected="selected">United Kingdom</option>
+                     <option>EU National</option>
+                     <option disabled>---------------------------</option>
+                     <option value="other">Other</option>
+                  </select>
+               </div>
+            </div>
+         </div>
+         <div ui-if="showImmigration">
+            <div class="form-row">
+               <div class="two-col">
+                  <div>
+                     <label>
+                        Immigration Status
+                        <span class="fa fa-question-circle"/>
+                     </label>
+                  </div>
+                  <div>
+                     <select ng-model="form.immigrationStatus" ng-change="toggleField('immigration')">
+                        <option>Indefinite Leave to Remain in UK</option>
+                        <option value="work visa">Work Visa</option>
+                        <option disabled>---------------------------</option>
+                        <option value="other">Other</option>
+                     </select>
+                  </div>
+               </div>
+               <div class="two-col" ui-if="showOtherImmigrationStatus">
+                  <div>
+                     <label>Other</label>
+                  </div>
+                  <div>
+                     <input type="text"/>
+                  </div>
+               </div>
+            </div>
+            <div class="form-row" ui-if="showVisaExpiry">
+               <div class="two-col">
+                  <div>
+                     <label>
+                        Visa Expiry
+                        <span class="fa fa-question-circle"/>
+                     </label>
+                  </div>
+                  <div>
+                     <input type="text"/>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+
+
+      <div class="form-section">
+         <div class="section-header">Your Agency</div>
+         <div class="form-row">
+            <div class="bit-6">
+               <div>
+                  <label>Agency</label>
+               </div>
+               <div>
+                  <select ng-model="form.agency" ng-change="toggleField('agency')">
+                     <option selected="selected" disabled></option>
+                     <option>Hays IT</option>
+                     <option disabled>-------------</option>
+                     <option value="other">Other</option>
+                  </select>
+               </div>
+            </div>
+            <div class="bit-6" ui-if="showOtherAgency">
+               <div>
+                  <label>Other</label>
+               </div>
+               <div>
+                  <input type="text"/>
+               </div>
+            </div>
+         </div>
+         <div class="form-row">
+            <div class="bit-6">
+               <div>
+                  <label>Agency Branch</label>
+               </div>
+               <div>
+                  <select ng-model="form.agencyBranch" ng-change="toggleField('agency branch')">
+                     <option selected="selected" disabled></option>
+                     <option>Houndsditch</option>
+                     <option disabled>-------------</option>
+                     <option value="other">Other</option>
+                  </select>
+               </div>
+            </div>
+            <div class="bit-6" ui-if="showOtherAgencyBranch">
+               <div>
+                  <label>Other</label>
+               </div>
+               <div>
+                  <input type="text"/>
+               </div>
+            </div>
+         </div>
+         <div class="form-row">
+            <div class="bit-6">
+               <div>
+                  <label>Agency Contact Name</label>
+               </div>
+               <div>
+                  <input type="text"/>
+               </div>
+            </div>
+            <div class="bit-6">
+               <div>
+                  <label>Agency Contact Email Address</label>
+               </div>
+               <div>
+                  <input type="text"/>
+               </div>
+            </div>
+         </div>
+         <div class="form-row">
+            <div class="bit-6">
+               <div>
+                  <label>Agency Contact Telephone</label>
+               </div>
+               <div>
+                  <input type="text"/>
+               </div>
+            </div>
+         </div>
+      </div>
+
+
+
+      <div class="form-section">
+         <div class="section-header">Your Contract</div>
+         <div class="form-row">
+            <div class="bit-6">
+               <div>
+                  <label>Client</label>
+               </div>
+               <div>
+                  <select ng-model="form.client" ng-change="toggleField('client')">
+                     <option selected="selected" disabled></option>
+                     <option>Deutsche Bank</option>
+                     <option disabled>-------------</option>
+                     <option value="other">Other</option>
+                  </select>
+               </div>
+            </div>
+            <div class="bit-6" ui-if="showOtherClient">
+               <div>
+                  <label>Other</label>
+               </div>
+               <div>
+                  <input type="text"/>
+               </div>
+            </div>
+         </div>
+         <div class="form-row">
+            <div class="bit-6">
+               <div>
+                  <label>
+                     Job Title
+                     <span class="fa fa-question-circle"/>
+                  </label>
+               </div>
+               <div>
+                  <select ng-model="form.jobTitle" ng-change="toggleField('job title')">
+                     <option selected="selected" disabled></option>
+                     <option>Accountant</option>
+                     <option>Administrator</option>
+                     <option>Project Manager</option>
+                     <option>Software Engineer</option>
+                     <option>Systems Analyst</option>
+                     <option disabled>-------------</option>
+                     <option value="other">Other</option>
+                  </select>
+               </div>
+            </div>
+            <div class="bit-6" ui-if="showOtherJobTitle">
+               <div>
+                  <label>Other</label>
+               </div>
+               <div>
+                  <input type="text"/>
+               </div>
+            </div>
+         </div>
+         <div class="form-row">
+            <div class="bit-4">
+               <div>
+                  <label>
+                     Start Date
+                     <span class="fa fa-question-circle"/>
+                  </label>
+               </div>
+               <div>
+                  <input type="text" date-picker/>
+                  <span class="fa fa-calendar"/>
+               </div>
+            </div>
+            <div class="bit-4">
+               <div>
+                  <label>
+                     End Date
+                     <span class="fa fa-question-circle"/>
+                  </label>
+               </div>
+               <div>
+                  <input type="text" date-picker/>
+                  <span class="fa fa-calendar"/>
+               </div>
+            </div>
+         </div>
+
+         <div class="form-row" style="margin-top: 20px;">
+            <label>
+               Agreed Rates
+               <span class="fa fa-question-circle"/>
+            </label>
+         </div>
+         <div class="form-row">
+            <div class="bit-3"><label>Type</label></div>
+            <div class="bit-3"><label>Rate</label></div>
+            <div class="bit-4"><label>Currency</label></div>
+            <div class="bit-1"></div>
+            <div class="bit-1"></div>
+         </div>
+         <div class="form-row" ng-repeat="rate in rateList">
+            <div class="bit-3">
+               <select ng-model="rate.type">
+                  <option>Daily</option>
+                  <option>Hourly</option>
+                  <option>Fixed Fee</option>
+               </select>
+            </div>
+            <div class="bit-3">
+               <input type="text" ng-model="rate.rate"/>
+            </div>
+            <div class="bit-4">
+               <select ng-model="rate.currency">
+                  <option value="GBP">British Pound</option>
+                  <option value="EUR">European Euro</option>
+                  <option value="PHP">Philippine Peso</option>
+                  <option value="USD">United States Dollar</option>
+               </select>
+            </div>
+            <div class="bit-1">
+               <input type="text" ng-model="rate.currency" disabled/>
+            </div>
+            <div class="bit-1">
+               <button class="btn2" ng-click="removeRateLine($index)">
+                  <span class="fa fa-trash-o fa-2x"></span>
+               </button>
+            </div>
+         </div>
+         <div class="form-row">
+            <div class="bit-3">
+               <button class="btn2" ng-click="addRateLine()">
+                  <span class="fa fa-plus"></span>&nbsp;&nbsp;new rate line
+               </button>
+            </div>
+         </div>
+      </div>
+
+
+      <div class="form-section">
+         <div class="section-header" style="width: 30%;">
+            Compliance Documents 
+            <span class="fa fa-question-circle"/>
+         </div>
+         <div class="form-row">
+            <div class="bit-6">
+               <div>
+                  <label>Your Identity Document</label>
+               </div>
+               <div>
+                  <select>
+                     <option>Passport</option>
+                  </select>
+               </div>
+            </div>
+            <div class="bit-6">
+               <div>&nbsp;</div>
+               <div>
+                  <input type="file"/>
+               </div>
+            </div>
+         </div>
+         <div class="form-row">
+            <div class="bit-6">
+               <div>
+                  <label>Your Immigration Document</label>
+               </div>
+               <div>
+                  <select>
+                     <option>Visa</option>
+                  </select>
+               </div>
+            </div>
+            <div class="bit-6">
+               <div>&nbsp;</div>
+               <div>
+                  <input type="file"/>
+               </div>
+            </div>
+         </div>
+      </div>
+
+
+
+      <div class="form-section">
+         <div class="form-row">
+            <div>
+               <input id="confirm" type="checkbox"/>
+               <label for="confirm">I confirm that all the details contained in this form are true</label>
+            </div>
+         </div>
+      </div>
+
+      <div class="form-section">
+         <div class="form-controls">
+            <button class="btn1">Save as Draft</button>
+            <button class="btn1">Submit</button>
+         </div>
+      </div>
+
+   </form>
+</div>

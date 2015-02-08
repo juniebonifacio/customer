@@ -1,0 +1,64 @@
+<div>
+	<topbar></topbar>
+	<div class="content">
+		<div class="left-sidebar">
+			<div class="sidebar-item">
+				<div class="sidebar-item-header">Your Manager</div>
+				<div class="sidebar-item-body">
+					<div class="admin-profile">
+						<div class="admin-details">
+							Your manager is <b>&lt;Service Manager&gt;</b>
+							<div class="admin-actions">
+								<span class="fa fa-envelope-o"/> Send a message
+							</div>
+						</div>
+						<div class="admin-user-image"><span class="fa fa-smile-o"/></div>
+					</div>
+				</div>
+			</div>
+			<div class="sidebar-item">
+				<div class="sidebar-item-header">Tasks</div>
+				<div class="sidebar-item-body">
+					<div class="task-item"><span class="fa fa-money"/> View List of Apointments</div>
+					<div class="task-item"><span class="fa fa-ticket"/> View Major Repairs this week</div>
+					<div class="task-item"><span class="fa fa-edit"/> Request Pricing for Parts</div>
+					<div class="task-item"><span class="fa fa-cog"/> Download Data From System</div>
+					<div class="task-item"><span class="fa fa-comments"/> Send a Thank you message</div>
+				</div>
+			</div>
+			<div class="sidebar-item">
+				<div class="sidebar-item-header">Documents</div>
+				<div class="sidebar-item-body">
+					<div class="document-list">
+						<div class="document-item">
+							<div class="fa fa-file-text-o"/>
+							<div>Appointments</div>
+						</div>
+						<div class="document-item">
+							<div class="fa fa-list-alt"/>
+							<div>Major Repairs</div>
+						</div>
+						<div class="document-item">
+							<div class="fa fa-clipboard"/>
+							<div>Pricings</div>
+						</div>
+						<div class="document-item">
+							<div class="fa fa-file-o"/>
+							<div>Reminders</div>
+						</div>
+						<div class="document-item">
+							<div class="fa fa-table"/>
+							<div>Management Reports</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="main" ng-switch on="showMain">
+			<div class="consultant-dashboard" ng-switch-when="home">
+				<div class="greeting">Welcome, &lt;Service Advisor Name&gt;!</div>
+			</div>
+			<div ng-switch-when="messaging"><messaging></messaging></div>
+		</div>
+	</div>
+</div>
